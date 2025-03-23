@@ -113,3 +113,11 @@ deoarece conține:
 
 4. Pentru ce este responsabil parametrul post_max_size din fișierul de configurare PHP?
 Parametrul post_max_size definește dimensiunea maximă permisă pentru o cerere POST, adică pentru datele trimise de utilizator printr-un formular sau printr-o încărcare de fișiere. Dacă o cerere POST depășește această dimensiune, serverul PHP va returna o eroare.
+
+5. Specificați, în opinia dvs., care sunt deficiențele imaginii containerului creat?
+  - Setări implicite Apache și PHP care pot fi nesigure
+  - Lipsa unui sistem de backup sau monitorizare
+  - Setări de performanță neoptimizate
+
+
+# Realizat de Bozian Ana-Maria I2301 
