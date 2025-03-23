@@ -73,5 +73,43 @@ EXPOSE 80
 ### start supervisor
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
-2. dupa ce am creat imaginea pornim containerul in baza imaginii:
-![image](https://github.com/user-attachments/assets/dc2c9e21-56fa-41bc-959c-e8b58ac2e7a5)
+2. dupa ce am creat imaginea, pornim containerul in baza imaginii si facem verificari:
+![image](https://github.com/user-attachments/assets/68c4ec98-f133-49ef-9d9a-132eb7250cc6)
+![image](https://github.com/user-attachments/assets/49a848cb-1478-4e18-af15-1a8d3f284cb8)
+
+## partea 4
+am creat baza de date wordpress cu utilizatorul wordpress:
+![image](https://github.com/user-attachments/assets/54c1e125-c987-4d88-870b-f2cbfc826f6f)
+
+## partea 5
+1. in wordpress la pasul 2 am adaugat urmatoarele date:
+   Numele bazei de date: wordpress;
+  Utilizatorul bazei de date: wordpress;
+  Parola bazei de date: wordpress;
+  Adresa bazei de date: localhost;
+  Prefixul tabelelor: wp_
+2. am copiat continutul fisierului wp-config.php si l-am adaugat in fisierul din files/wp-config.php care este local
+![image](https://github.com/user-attachments/assets/bec335ef-c8c7-4005-a086-ace0acec8fab)
+3. adaugam fisierul de configurare wordpress in Dockerfile
+![image](https://github.com/user-attachments/assets/41162199-728a-4679-8ee8-35b90e7ae144)
+
+
+# Raspuns la intrebari
+1. Ce fișiere de configurare au fost modificate?
+Fișierele de configurare care au fost modificate sunt:
+  - 000-default.conf
+  - apache2.conf
+  - php.ini
+  - 0-server.cnf
+
+2. Pentru ce este responsabilă instrucția DirectoryIndex din fișierul de configurare Apache2?
+Instrucția DirectoryIndex din fișierul de configurare Apache2 definește fișierul sau fișierele care sunt considerate ca fiind indexul pentru un director. Atunci când un utilizator accesează un director fără a specifica un fișier, Apache va căuta fișierul specificat în DirectoryIndex și îl va servi ca pagină principală.
+
+3. De ce este necesar fișierul wp-config.php?
+deoarece conține:
+  - Setările bazei de date (numele bazei de date, utilizatorul, parola, și adresa bazei de date).
+  - Chei de securitate și sale care sunt folosite pentru a securiza sesiunile și datele utilizatorilor.
+  - Setări pentru debug și alte funcții avansate.
+
+4. Pentru ce este responsabil parametrul post_max_size din fișierul de configurare PHP?
+Parametrul post_max_size definește dimensiunea maximă permisă pentru o cerere POST, adică pentru datele trimise de utilizator printr-un formular sau printr-o încărcare de fișiere. Dacă o cerere POST depășește această dimensiune, serverul PHP va returna o eroare.
